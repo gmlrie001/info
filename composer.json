@@ -1,0 +1,36 @@
+{
+  "name": "vault/info",
+  "type": "library",
+  "description": "Generic CRUD and frontend information pages.",
+  "keywords": [
+    "vault_core", 
+    "general pages"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "M. Riedaa Gamieldien",
+      "email": "riedaa@monzamedia.com"
+    }
+  ],
+  "require": {},
+  "minimum-stability": "dev",
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Vault\\Info\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Vault\\Info\\InfoServiceProvider"
+      ],
+      "aliases": {
+        "Info": "Vault\\Info\\Facades\\Info"
+      }
+    }
+  }
+}
