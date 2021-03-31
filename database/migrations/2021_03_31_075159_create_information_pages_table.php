@@ -12,98 +12,100 @@ class CreateInformationPagesTable extends Migration {
 	 */
 	public function up()
 	{
-    if ( ! Schema::hasTable( 'information_pages' ) ):
-      Schema::create('information_pages', function(Blueprint $table)
-      {
-        $table->bigIncrements('id');
+	    if ( ! Schema::hasTable( 'information_pages' ) ):
+	      Schema::create('information_pages', function(Blueprint $table)
+	      {
+		$table->bigIncrements('id');
 
-        $table->string('title', 191);
-        $table->string('url_title', 191)->nullable();
+		$table->string('title', 191);
+		$table->string('url_title', 191)->nullable();
 
-        $table->text('description')->nullable();
+		$table->text('description')->nullable();
 
-        $table->string('seo_title', 191)->nullable();
-        $table->text('seo_keywords', 65535)->nullable();
-        $table->text('seo_description', 65535)->nullable();
+		$table->text('featured_image', 65535)->nullable();
 
-        $table->timestamps();
-        $table->softDeletes();
+		$table->string('seo_title', 191)->nullable();
+		$table->text('seo_keywords', 65535)->nullable();
+		$table->text('seo_description', 65535)->nullable();
 
-        $table->string('status', 191)->nullable();
-        $table->dateTime('status_date')->nullable();
+		$table->timestamps();
+		$table->softDeletes();
 
-        $table->integer('order');
-      });
-    endif;
+		$table->string('status', 191)->nullable();
+		$table->dateTime('status_date')->nullable();
 
-    if ( ! Schema::hasTable( 'information_page_articles' ) ):
-      Schema::create('information_page_articles', function(Blueprint $table)
-      {
-        $table->increments('id');
+		$table->integer('order');
+	      });
+	    endif;
 
-        $table->string('title', 191)->nullable();
+	    if ( ! Schema::hasTable( 'information_page_articles' ) ):
+	      Schema::create('information_page_articles', function(Blueprint $table)
+	      {
+		$table->increments('id');
 
-        $table->text('description')->nullable();
+		$table->string('title', 191)->nullable();
 
-        $table->text('featured_image', 65535)->nullable();
+		$table->text('description')->nullable();
 
-        $table->timestamps();
-        $table->softDeletes();
+		$table->text('featured_image', 65535)->nullable();
 
-        $table->string('status', 191)->nullable();
-        $table->dateTime('status_date')->nullable();
+		$table->timestamps();
+		$table->softDeletes();
 
-        $table->integer('order');
-        $table->integer('information_page_id')->nullable();
-      });
-    endif;
+		$table->string('status', 191)->nullable();
+		$table->dateTime('status_date')->nullable();
 
-    if ( ! Schema::hasTable( 'information_page_banners' ) ):
-      Schema::create('information_page_banners', function(Blueprint $table)
-      {
-        $table->increments('id');
+		$table->integer('order');
+		$table->integer('information_page_id')->nullable();
+	      });
+	    endif;
 
-        $table->string('title', 191)->nullable();
-        $table->string('max_columns', 191)->nullable();
+	    if ( ! Schema::hasTable( 'information_page_banners' ) ):
+	      Schema::create('information_page_banners', function(Blueprint $table)
+	      {
+		$table->increments('id');
 
-        $table->timestamps();
-        $table->softDeletes();
+		$table->string('title', 191)->nullable();
+		$table->string('max_columns', 191)->nullable();
 
-        $table->string('status', 191)->nullable();
-        $table->dateTime('status_date')->nullable();
+		$table->timestamps();
+		$table->softDeletes();
 
-        $table->integer('order')->nullable();
-        $table->integer('information_page_id')->nullable()->index('information_page_id');
-      });
-    endif;
+		$table->string('status', 191)->nullable();
+		$table->dateTime('status_date')->nullable();
 
-    if ( ! Schema::hasTable( 'information_page_banner_blocks' ) ):
-      Schema::create('information_page_banner_blocks', function(Blueprint $table)
-      {
-        $table->increments('id');
+		$table->integer('order')->nullable();
+		$table->integer('information_page_id')->nullable()->index('information_page_id');
+	      });
+	    endif;
 
-        $table->string('title', 191)->nullable();
-        
-        $table->text('description')->nullable();
-        
-        $table->string('column_count', 191)->nullable();
-        
-        $table->string('link', 191)->nullable();
-        $table->string('link_target', 191)->nullable();
-        
-        $table->text('banner_image', 65535)->nullable();
-        $table->text('mobile_image', 65535)->nullable();
-        
-        $table->timestamps();
-        $table->softDeletes();
-        
-        $table->string('status', 191)->nullable();
-        $table->dateTime('status_date')->nullable();
-        
-        $table->integer('order')->nullable();
-        $table->integer('page_banner_id')->nullable()->index('page_banner_id');
-      });
-    endif;
+	    if ( ! Schema::hasTable( 'information_page_banner_blocks' ) ):
+	      Schema::create('information_page_banner_blocks', function(Blueprint $table)
+	      {
+		$table->increments('id');
+
+		$table->string('title', 191)->nullable();
+
+		$table->text('description')->nullable();
+
+		$table->string('column_count', 191)->nullable();
+
+		$table->string('link', 191)->nullable();
+		$table->string('link_target', 191)->nullable();
+
+		$table->text('banner_image', 65535)->nullable();
+		$table->text('mobile_image', 65535)->nullable();
+
+		$table->timestamps();
+		$table->softDeletes();
+
+		$table->string('status', 191)->nullable();
+		$table->dateTime('status_date')->nullable();
+
+		$table->integer('order')->nullable();
+		$table->integer('page_banner_id')->nullable()->index('page_banner_id');
+	      });
+	    endif;
 	}
 
 	/**
@@ -114,12 +116,9 @@ class CreateInformationPagesTable extends Migration {
 	public function down()
 	{
 		Schema::drop('information_pages');
-
-    Schema::drop('information_page_articles');
-
-    Schema::drop('information_page_banners');
-
-    Schema::drop('information_page_banner_blocks');
+    		Schema::drop('information_page_articles');
+    		Schema::drop('information_page_banners');
+    		Schema::drop('information_page_banner_blocks');
 	}
 
 }
