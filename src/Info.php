@@ -2,7 +2,6 @@
 
 namespace Vault\Info;
 
-
 Class Info
 {
 
@@ -12,10 +11,12 @@ Class Info
   public function __construct()
   {
     $this->packageNamespace = __NAMESPACE__;
-
-    $this->aliasToAppModels();
-    $this->aliasToHttpRequests();
-
+    
+    /*
+    // $this->aliasToAppModels();
+    // $this->aliasToHttpRequests();
+    */
+    
     return $this;
   }
 
@@ -76,6 +77,14 @@ Class Info
 
       } catch( \Exception $error ) {}
     }
-  }
+
+  // public function test()
+  // {
+  //   return [
+  //     Info::class, 
+  //     get_class( $this ), 
+  //     gettype( Info::class )
+  //   ];
+  // }
 
 }
