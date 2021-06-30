@@ -48,7 +48,7 @@ class InformationPageController extends PageController
     $this->data['seo']['url']             = url( $this->data['page']->url_title );
     $this->data['seo']['image']           = url( $this->data['site_settings']->logo );
 
-    return view('templates.information_pages.index', $this->data);
+    return view('information_pages::index', $this->data);
   }
 
 }

@@ -49,7 +49,7 @@
 <div class="container articleWrap">
 
   @if ( NULL != $info_page->displayArticles && count( $info_page->displayArticles ) > 0 )
-    @each( 'templates.information_pages.article.index', $info_page->displayArticles, 'article' )
+    @each( 'information_pages::article.index', $info_page->displayArticles, 'article' )
   @endif
 
 </div>

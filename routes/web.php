@@ -5,6 +5,6 @@
 // Information Pages
 Route::middleware( ['web'] )->group( function() {
 
-  Route::get( '/{page_url}', 'InformationController@index' );
+  Route::get( '/{page_url}', 'InformationPageController@index' );
 
 });
