@@ -1,6 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Redirect;
+// use Illuminate\Support\Facades\Redirect;
 
 // Information Pages
-Route::get( '/{page_url}', 'InformationController@index' )->name( 'info_pages' );
+Route::middleware( ['web'] )->group( function() {
+
+  Route::get( '/{page_url}', 'InformationController@index' );
+
+});
