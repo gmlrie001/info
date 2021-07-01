@@ -63,20 +63,21 @@ Class Info
       ( new \Vault\Info\Requests\InformationPageArticle\UpdateRequest ),
     ];
 
-    foreach( $requestInstances as $instance ) {
-      $temp = explode( '\\', get_class( $instance ) );
-      $requestType = array_pop( $temp );
-      $className   = array_pop( $temp );
-      unset( $temp );
+    foreach ($requestInstances as $instance) {
+      $temp = explode('\\', get_class($instance));
+      $requestType = array_pop($temp);
+      $className   = array_pop($temp);
+      unset($temp);
 
       try {
-        $alias = class_alias( get_class( $instance ), "\\App\\Http\\Requests\\$className\\$requestType", !0 );
-        if ( ! $alias ) {
-          info( 'Failed to alias Http/Request/StoreCredit/... class: ' . get_class( $instance ) );
+        $alias = class_alias(get_class($instance), "\\App\\Http\\Requests\\$className\\$requestType", !0);
+        if (! $alias) {
+            info('Failed to alias Http/Request/StoreCredit/... class: ' . get_class($instance));
         }
 
-      } catch( \Exception $error ) {}
+      } catch (\Exception $error) {}
     }
+  }
 
   // public function test()
   // {
