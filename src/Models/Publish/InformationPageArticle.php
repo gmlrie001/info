@@ -71,7 +71,7 @@ class InformationPageArticle extends Model
 
   public function page()
   {
-    return $this->belongsTo( App\Models\InformationPage::class, 'information_page_id' )->withDefault();
+    return $this->belongsTo( \App\Models\InformationPage::class, 'information_page_id' )->withDefault();
   }
 
 }

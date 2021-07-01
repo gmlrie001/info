@@ -63,17 +63,17 @@ Class InformationPageBanner extends Model
 
   public function page()
   {
-    return $this->belongsTo( App\Models\InformationPage::class, 'information_page_id' )->withDefault();
+    return $this->belongsTo( \App\Models\InformationPage::class, 'information_page_id' )->withDefault();
   }
 
   public function blocks()
   {
-    return $this->hasMany( App\Models\InformationPageBannerBlock::class, 'information_page_banner_id' );
+    return $this->hasMany( \App\Models\InformationPageBannerBlock::class, 'information_page_banner_id' );
   }
 
   public function displayBlocks()
   {
-    return $this->hasMany( App\Models\InformationPageBannerBlock::class, 'information_page_banner_id' )
+    return $this->hasMany( \App\Models\InformationPageBannerBlock::class, 'information_page_banner_id' )
                 ->where('status', 'PUBLISHED')->orWhere('status', 'SCHEDULED')
                 ->where('status_date', '>=', now())
                 ->orderBy('order', 'asc');;

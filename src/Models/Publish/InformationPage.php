@@ -86,12 +86,12 @@ class InformationPage extends Model
 
   public function articles()
   {
-    return $this->hasMany( App\Models\InformationPageArticle::class, 'information_page_id' );
+    return $this->hasMany( \App\Models\InformationPageArticle::class, 'information_page_id' );
   }
   
   public function displayArticles()
   {
-    return $this->hasMany( App\Models\InformationPageArticle::class, 'information_page_id' )->where( function ($query) {
+    return $this->hasMany( \App\Models\InformationPageArticle::class, 'information_page_id' )->where( function ($query) {
         $query->where('status', 'PUBLISHED')->orWhere('status', 'SCHEDULED')
               ->where('status_date', '>=', now());
       }
@@ -101,12 +101,12 @@ class InformationPage extends Model
 
   public function banners()
   {
-    return $this->hasMany( App\Models\InformationPageBanner::class, 'information_page_id' );
+    return $this->hasMany( \App\Models\InformationPageBanner::class, 'information_page_id' );
   }
   
   public function displayBanners()
   {
-    return $this->hasMany( App\Models\InformationPageBanner::class, 'information_page_id' )->where( function ($query) {
+    return $this->hasMany( \App\Models\InformationPageBanner::class, 'information_page_id' )->where( function ($query) {
         $query->where('status', 'PUBLISHED')->orWhere('status', 'SCHEDULED')
               ->where('status_date', '>=', now());
       }

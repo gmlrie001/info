@@ -66,7 +66,7 @@ Class InformationPageBannerBlock extends Model
 
   public function banner()
   {
-    return $this->belongsTo( App\Models\InformationPageBanner::class, 'information_page_banner_id' )->withDefault();
+    return $this->belongsTo( \App\Models\InformationPageBanner::class, 'information_page_banner_id' )->withDefault();
   }
 
 }
