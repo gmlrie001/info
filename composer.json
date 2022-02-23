@@ -29,7 +29,7 @@
         "Vault\\Info\\InfoServiceProvider"
       ],
       "aliases": {
-        "Info": "Vault\\Info\\Facades\\Info"
+        "info": "Vault\\Info\\Facades\\Info"
       }
     }
   }
